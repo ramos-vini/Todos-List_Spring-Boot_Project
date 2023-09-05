@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="webjars/bootstrap/5.3.1/css/bootstrap.min.css">
+    <title>Todos List</title>
+</head>
+<body>
+<div class="container">
+    <h1>Your Todos List:</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Done?</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="todo: ${todos}">
+                <td th:text="${todo.getId()}"></td>
+                <td th:text="${todo.getDescription()}"></td>
+                <td th:text="${todo.getDueDate()}"></td>
+                <td th:text="${todo.isDone()}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="add-todo" class="btn btn-success">Add Todo</a>
+</div>
+
+    <script src="webjars/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+    <script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+</body>
+</html>
