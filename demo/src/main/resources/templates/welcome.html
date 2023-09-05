@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <div>
-        <h1>Welcome back, @<span th:text="${name}"></span>!</h1>
+        <h1 th:text="'Welcome back, @' + ${name} + '!'"></h1>
         <p>Manage your ToDo List <a href="todos-list">here</a></p>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="webjars/bootstrap/5.3.1/css/bootstrap.min.css">
@@ -8,10 +8,12 @@
 <body>
   <div class="container">
     <h1>Add Your Todo:</h1>
-      <form method="post">
-          <label>Description:</label>
-          <input type="text" name="description" id="description">
-          <input type="submit" value="Add" class="btn btn-success">
+      <form action="add-todo" th:object="${todo}" method="post">
+          <label for="description">Description:</label>
+          <input type="text" name="description" id="description" required="required" th:field="*{description}">
+          <input type="hidden" name="id" th:field="*{id}">
+          <input type="hidden" name="done" th:field="*{done}">
+          <input type="submit" value="Submit" class="btn btn-success">
       </form>
   </div>
 </body>

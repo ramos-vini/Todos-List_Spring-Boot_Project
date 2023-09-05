@@ -1,8 +1,13 @@
 package com.example.demo.todo;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 
 public class Todo {
+
+    public Todo() {}
 
     public Todo(int id, String description, LocalDate dueDate, boolean done) {
         this.id = id;

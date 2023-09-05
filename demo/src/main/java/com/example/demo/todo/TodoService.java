@@ -23,6 +23,6 @@ public class TodoService {
     }
 
     public static void addTodo(String description){
-        todos.add(new Todo(++todosCounter,description, LocalDate.now().plusMonths(1), false));
+        todos.add(new Todo(++todosCounter, description, LocalDate.now().plusMonths(1), false));
     }
 }
