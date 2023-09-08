@@ -1,7 +1,6 @@
 package com.example.demo.todo;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
@@ -17,6 +16,7 @@ public class Todo {
     }
 
     private int id;
+    @Size(min = 5, message = "Enter at least 5 characters")
     private String description;
     private LocalDate dueDate;
     private boolean done;
