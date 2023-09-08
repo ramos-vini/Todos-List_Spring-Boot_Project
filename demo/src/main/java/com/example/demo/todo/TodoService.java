@@ -22,8 +22,13 @@ public class TodoService {
         return todos;
     }
 
-    public static void addTodo(String description){
-        todos.add(new Todo(++todosCounter, description, LocalDate.now().plusMonths(1), false));
+    public static void addTodo(Todo todo){
+        todos.add(new Todo(++todosCounter, todo.getDescription(), todo.getDueDate(), false));
+    }
+
+    /* Keeps the same ID for updated Todos */
+    public static void addTodo(Todo todo, int id){
+        todos.add(new Todo(id, todo.getDescription(), todo.getDueDate(), false));
     }
 
     public static Todo findById(int id){
@@ -43,8 +48,9 @@ public class TodoService {
     }
 
     public static void updateTodo(Todo todo){
-        deleteById(todo.getId());
-        todos.add(todo);
+        int id = todo.getId();
+        deleteById(id);
+        addTodo(todo, id);
     }
 
 }

@@ -12,7 +12,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Description</th>
                 <th>Due Date</th>
                 <th>Done?</th>
@@ -23,7 +22,6 @@
 
         <tbody>
             <tr th:each="todo: ${todos}">
-                <td th:text="${todo.getId()}"></td>
                 <td th:text="${todo.getDescription()}"></td>
                 <td th:text="${todo.getDueDate()}"></td>
                 <td th:text="${todo.isDone()}"></td>

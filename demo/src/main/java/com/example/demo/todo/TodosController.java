@@ -37,7 +37,7 @@ public class TodosController {
             return "addTodo"; /* html file name */
         }
 
-        TodoService.addTodo(todo.getDescription());
+        TodoService.addTodo(todo);
         return "redirect:todos-list"; /* Redirect to the GET Link, not to the View doc */
     }
 
