@@ -16,7 +16,8 @@
                 <th>Description</th>
                 <th>Due Date</th>
                 <th>Done?</th>
-                <th></th>
+                <th></th> <!-- Update -->
+                <th></th> <!-- Delete -->
             </tr>
         </thead>
 
@@ -26,6 +27,7 @@
                 <td th:text="${todo.getDescription()}"></td>
                 <td th:text="${todo.getDueDate()}"></td>
                 <td th:text="${todo.isDone()}"></td>
+                <td><a th:href="'update-todo' + '?id=' + ${todo.getId()}"><button th:text="Update" class="btn btn-warning"></button></a></td>
                 <td><a th:href="'delete-todo' + '?id=' + ${todo.getId()}"><button th:text="Delete" class="btn btn-danger"></button></a></td>
             </tr>
         </tbody>

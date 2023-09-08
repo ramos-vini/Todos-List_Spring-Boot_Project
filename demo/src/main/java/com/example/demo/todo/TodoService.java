@@ -26,12 +26,19 @@ public class TodoService {
         todos.add(new Todo(++todosCounter, description, LocalDate.now().plusMonths(1), false));
     }
 
-    public static void deleteTodobyID(int id){
+    public static void deleteById(int id){
         for (Todo todo : todos){
             if (todo.getId() == id){
                 todos.remove(todo);
                 return;
             }
         }
+    }
+
+    public static Todo findById(int id){
+        for (Todo todo : todos){
+            if (todo.getId() == id) return todo;
+        }
+        return null;
     }
 }

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="webjars/bootstrap/5.3.1/css/bootstrap.min.css">
-    <title>Add Todo</title>
+    <title>Update Todo</title>
 </head>
 <body>
   <div class="container">
-    <h1>Add your Todo:</h1>
-      <form action="add-todo" th:object="${todo}" method="post">
+    <h1>Todo Details:</h1>
+      <form action="update-todo" th:object="${todo}" method="post">
           <label for="description">Description:</label>
           <input type="text" name="description" id="description" required="required" th:field="*{description}">
           <span th:errors="*{description}" class="text-secondary"></span>
