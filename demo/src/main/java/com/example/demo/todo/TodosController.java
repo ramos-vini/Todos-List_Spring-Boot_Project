@@ -55,4 +55,14 @@ public class TodosController {
         model.addAttribute("todo", todo);
         return "updateTodo";
     }
+
+    @PostMapping("update-todo")
+    public String updateTodo(@Valid Todo todo, BindingResult result){
+        if(result.hasErrors()){
+            return "updateTodo";
+        }
+        TodoService.updateTodo(todo);
+        return "redirect:todos-list";
+    }
+
 }
