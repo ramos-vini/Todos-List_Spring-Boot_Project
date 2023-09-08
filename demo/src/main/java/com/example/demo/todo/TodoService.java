@@ -25,4 +25,13 @@ public class TodoService {
     public static void addTodo(String description){
         todos.add(new Todo(++todosCounter, description, LocalDate.now().plusMonths(1), false));
     }
+
+    public static void deleteTodobyID(int id){
+        for (Todo todo : todos){
+            if (todo.getId() == id){
+                todos.remove(todo);
+                return;
+            }
+        }
+    }
 }

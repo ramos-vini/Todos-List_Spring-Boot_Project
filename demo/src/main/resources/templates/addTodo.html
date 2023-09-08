@@ -11,7 +11,7 @@
       <form action="add-todo" th:object="${todo}" method="post">
           <label for="description">Description:</label>
           <input type="text" name="description" id="description" required="required" th:field="*{description}">
-          <span th:errors="*{description}" class="text-warning"></span>
+          <span th:errors="*{description}" class="text-secondary"></span>
           <input type="hidden" name="id" th:field="*{id}">
           <input type="hidden" name="done" th:field="*{done}">
           <input type="submit" value="Submit" class="btn btn-success">

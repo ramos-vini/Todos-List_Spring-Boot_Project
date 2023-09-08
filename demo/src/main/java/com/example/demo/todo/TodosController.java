@@ -15,14 +15,15 @@ import java.util.List;
 @SessionAttributes("name")
 public class TodosController {
 
+    /* Todos List */
     @GetMapping("todos-list")
     public String todosListView(Model model){
-
         List<Todo> todos = TodoService.getTodos();
         model.addAttribute("todos", todos);
         return "todosList";
     }
 
+    /* Adding Todos */
     @GetMapping("add-todo")
     public String addTodoView(Model model){
         Todo todo = new Todo();
@@ -38,5 +39,12 @@ public class TodosController {
 
         TodoService.addTodo(todo.getDescription());
         return "redirect:todos-list"; /* Redirect to the GET Link, not to the View doc */
+    }
+
+    /* Deleting Todos */
+    @RequestMapping("delete-todo")
+    public String deleteTodo(@RequestParam int id){
+        TodoService.deleteTodobyID(id);
+        return "redirect:todos-list";
     }
 }
