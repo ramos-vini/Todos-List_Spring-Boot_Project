@@ -6,11 +6,13 @@
     <title>Todos List</title>
 </head>
 <body>
-<div class="container">
-    <h1>Your Todos List:</h1>
+    <div th:include="fragments/navbar"></div>
 
-    <table class="table">
-        <thead>
+    <div class="container">
+        <h1>Your Todos List:</h1>
+
+        <table class="table">
+            <thead>
             <tr>
                 <th>Description</th>
                 <th>Due Date</th>
@@ -18,21 +20,25 @@
                 <th></th> <!-- Update -->
                 <th></th> <!-- Delete -->
             </tr>
-        </thead>
+            </thead>
 
-        <tbody>
+            <tbody>
             <tr th:each="todo: ${todos}">
                 <td th:text="${todo.getDescription()}"></td>
                 <td th:text="${todo.getDueDate()}"></td>
                 <td th:text="${todo.isDone()}"></td>
-                <td><a th:href="'update-todo' + '?id=' + ${todo.getId()}"><button th:text="Update" class="btn btn-warning"></button></a></td>
-                <td><a th:href="'delete-todo' + '?id=' + ${todo.getId()}"><button th:text="Delete" class="btn btn-danger"></button></a></td>
+                <td><a th:href="'update-todo' + '?id=' + ${todo.getId()}">
+                    <button th:text="Update" class="btn btn-warning"></button>
+                </a></td>
+                <td><a th:href="'delete-todo' + '?id=' + ${todo.getId()}">
+                    <button th:text="Delete" class="btn btn-danger"></button>
+                </a></td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a href="add-todo" class="btn btn-success">Add Todo</a>
-</div>
+        <a href="add-todo" class="btn btn-success">Add Todo</a>
+    </div>
 
     <script src="webjars/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <script src="webjars/jquery/3.7.1/jquery.min.js"></script>

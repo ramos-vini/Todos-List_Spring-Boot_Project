@@ -7,37 +7,39 @@
     <title>Add Todo</title>
 </head>
 <body>
-  <div class="container">
+<div th:include="fragments/navbar"></div>
+
+<div class="container">
     <h1>Add your Todo:</h1>
-      <form action="add-todo" th:object="${todo}" method="post">
+    <form action="add-todo" th:object="${todo}" method="post">
 
-          <fieldset class="mt-3 mb-3">
-              <label for="description">Description:</label>
-              <input type="text" name="description" id="description" required="required" th:field="*{description}">
-              <span th:errors="*{description}" class="text-secondary"></span>
-          </fieldset>
+        <fieldset class="mt-3 mb-3">
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" required="required" th:field="*{description}">
+            <span th:errors="*{description}" class="text-secondary"></span>
+        </fieldset>
 
-          <fieldset class="mt-3 mb-3">
-              <label for="dueDate">Target Date:</label>
-              <input type="text" name="dueDate" id="dueDate" required="required" th:field="*{dueDate}">
-          </fieldset>
+        <fieldset class="mt-3 mb-3">
+            <label for="dueDate">Target Date:</label>
+            <input type="text" name="dueDate" id="dueDate" required="required" th:field="*{dueDate}">
+        </fieldset>
 
-          <input type="hidden" name="id" th:field="*{id}">
-          <input type="hidden" name="done" th:field="*{done}">
+        <input type="hidden" name="id" th:field="*{id}">
+        <input type="hidden" name="done" th:field="*{done}">
 
-          <input type="submit" value="Submit" class="btn btn-success">
-      </form>
-  </div>
+        <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+</div>
 
-  <script src="webjars/bootstrap/5.3.1/js/bootstrap.min.js"></script>
-  <script src="webjars/jquery/3.7.1/jquery.min.js"></script>
-  <script src="webjars/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+<script src="webjars/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+<script src="webjars/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
 
-  <script type="text/javascript">
+<script type="text/javascript">
     $('#dueDate').datepicker({
     format: 'yyyy-mm-dd',
     startDate: '0d'
     });
-  </script>
+</script>
 </body>
 </html>

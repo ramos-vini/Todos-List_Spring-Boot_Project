@@ -6,6 +6,8 @@
     <title>Welcome Page</title>
 </head>
 <body>
+<div th:include="fragments/navbar"></div>
+
 <div class="container">
     <div>
         <h1 th:text="'Welcome back, @' + ${name} + '!'"></h1>
