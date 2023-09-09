@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class WelcomeController {
 
     @GetMapping("/")
-    public String loginPage(@RequestParam(defaultValue = "my friend") String name, Model model){
+    public String loginPage(@RequestParam(defaultValue = "Vini") String name, Model model){
         model.addAttribute("name", name);
 
         return "welcome";
