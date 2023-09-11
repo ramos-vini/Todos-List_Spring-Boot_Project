@@ -13,22 +13,22 @@ public class TodoService {
     private static int todosCounter = 0;
 
     static{
-        todos.add(new Todo(++todosCounter,"Learn Spring Boot", LocalDate.now().plusMonths(1), false));
-        todos.add(new Todo(++todosCounter,"Learn AWS", LocalDate.now().plusMonths(2), false));
-        todos.add(new Todo(++todosCounter,"Learn Docker", LocalDate.now().plusMonths(3), false));
+        todos.add(new Todo(++todosCounter,"vini", "Learn Spring Boot", LocalDate.now().plusMonths(1), false));
+        todos.add(new Todo(++todosCounter,"vini", "Learn AWS", LocalDate.now().plusMonths(2), false));
+        todos.add(new Todo(++todosCounter,"vini", "Learn Docker", LocalDate.now().plusMonths(3), false));
     }
 
-    public static List<Todo> getTodos(){
+    public static List<Todo> getTodosByUser(){
         return todos;
     }
 
     public static void addTodo(Todo todo){
-        todos.add(new Todo(++todosCounter, todo.getDescription(), todo.getDueDate(), false));
+        todos.add(new Todo(++todosCounter, todo.getUsername(), todo.getDescription(), todo.getDueDate(), false));
     }
 
     /* Keeps the same ID for updated Todos */
-    public static void addTodo(Todo todo, int id){
-        todos.add(new Todo(id, todo.getDescription(), todo.getDueDate(), false));
+    public static void addTodoKeepId(Todo todo){
+        todos.add(new Todo(todo.getId(), todo.getUsername(), todo.getDescription(), todo.getDueDate(), todo.isDone()));
     }
 
     public static Todo findById(int id){
@@ -48,9 +48,8 @@ public class TodoService {
     }
 
     public static void updateTodo(Todo todo){
-        int id = todo.getId();
-        deleteById(id);
-        addTodo(todo, id);
+        deleteById(todo.getId());
+        addTodoKeepId(todo);
     }
 
 }

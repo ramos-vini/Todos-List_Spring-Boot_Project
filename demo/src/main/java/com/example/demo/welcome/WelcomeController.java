@@ -1,5 +1,6 @@
 package com.example.demo.welcome;
 
+import com.example.demo.security.LoggedinUser;
 import com.example.demo.security.SpringSecurityConfiguration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,14 +16,9 @@ public class WelcomeController {
 
     @GetMapping("/")
     public String loginPage(Model model){
-        model.addAttribute("name", getLoggedinUsername());
+        model.addAttribute("username", LoggedinUser.getUsername());
 
         return "welcome";
-    }
-
-    public String getLoggedinUsername(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.getName();
     }
 
 }

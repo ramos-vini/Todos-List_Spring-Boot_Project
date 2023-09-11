@@ -16,7 +16,7 @@ public class TodosController {
     /* Todos List */
     @GetMapping("todos-list")
     public String todosListView(Model model){
-        List<Todo> todos = TodoService.getTodos();
+        List<Todo> todos = TodoService.getTodosByUser();
         model.addAttribute("todos", todos);
         return "todosList";
     }
