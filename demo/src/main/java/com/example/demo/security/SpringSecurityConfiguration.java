@@ -49,7 +49,7 @@ public class SpringSecurityConfiguration {
         // Login Form is shown for unauthorized requests
         http.formLogin(Customizer.withDefaults());
 
-        // CSRF is Disabled
+        // CSRF (Cross-Site Request Forgery) is Disabled
         http.csrf().disable();
 
         // Frames are Disabled
