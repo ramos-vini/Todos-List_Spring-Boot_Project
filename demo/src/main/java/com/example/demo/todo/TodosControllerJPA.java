@@ -1,5 +1,6 @@
 package com.example.demo.todo;
 
+import com.example.demo.security.LoggedinUser;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,14 +10,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// @Controller
+@Controller
 @SessionAttributes("name")
-public class TodosController {
+public class TodosControllerJPA {
+
+  public TodosControllerJPA(TodoRepository todoRepository){
+        super();
+        this.todoRepository = todoRepository;
+    }
+   private final TodoRepository todoRepository;
 
     /* Todos List */
     @GetMapping("todos-list")
     public String todosListView(Model model){
-        List<Todo> todos = TodoService.getLoggedinUserTodos();
+        String username = LoggedinUser.getUsername();
+        List<Todo> todos = todoRepository.findByUsername(username);
         model.addAttribute("todos", todos);
         return "todosList";
     }
