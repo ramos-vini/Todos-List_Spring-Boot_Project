@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/* Replaced by TodoRepository (JPA Repository) */
 @Service
 public class TodoService {
     private static final List<Todo> todos = new ArrayList<>();

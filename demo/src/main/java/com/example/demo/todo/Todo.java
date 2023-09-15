@@ -66,4 +66,15 @@ public class Todo {
     public void setDone(boolean done) {
         this.done = done;
     }
+
+    @Override
+    public String toString(){
+
+        return  "\n" +
+                this.getId() + "\n" +
+                this.getUsername() + "\n" +
+                this.getDescription() + "\n" +
+                this.getDueDate() + "\n" +
+                this.isDone() + "\n";
+    }
 }

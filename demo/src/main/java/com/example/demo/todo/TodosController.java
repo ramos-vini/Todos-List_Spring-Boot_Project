@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/* Replaced by TodosControllerJPA */
 // @Controller
 @SessionAttributes("name")
 public class TodosController {

@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Add your Todo:</h1>
     <form action="add-todo" th:object="${todo}" method="post">
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> <!-- Spring Security CSRF Token-->
+       <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />  Spring Security CSRF Token-->
 
         <fieldset class="mt-3 mb-3">
             <label for="description">Description:</label>
