@@ -38,7 +38,6 @@ public class TodosControllerJPA {
         return "addTodo";
     }
 
-    // TODO: Fix the add-todo post request
     @PostMapping("add-todo")
     public String addTodo(@Valid Todo todo, BindingResult result){ /* This object name is optional */
         if(result.hasErrors()){
@@ -53,7 +52,6 @@ public class TodosControllerJPA {
     /* Deleting Todos */
     @RequestMapping("delete-todo")
     public String deleteTodo(@RequestParam int id){
-        TodoService.deleteById(id);
         todoRepository.delete(todoRepository.findById(id).get());
         return "redirect:todos-list";
     }
@@ -71,9 +69,19 @@ public class TodosControllerJPA {
         if(result.hasErrors()){
             return "updateTodo";
         }
-        // TodoService.updateTodo(todo);
         todoRepository.save(todo);
         return "redirect:todos-list";
     }
+
+    /* Toggle Todos */
+    @RequestMapping("toggle-todo-done")
+    public String toggleTodoDone(@RequestParam int id){
+        Todo todo = todoRepository.findById(id).get();
+        todo.setDone(!todo.isDone());
+        todoRepository.save(todo);
+        return "redirect:todos-list";
+    }
+
+
 
 }

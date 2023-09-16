@@ -16,7 +16,7 @@
             <tr>
                 <th>Description</th>
                 <th>Due Date</th>
-                <th>Done?</th>
+                <th>Done</th>
                 <th></th> <!-- Update -->
                 <th></th> <!-- Delete -->
             </tr>
@@ -26,7 +26,9 @@
             <tr th:each="todo: ${todos}">
                 <td th:text="${todo.getDescription()}"></td>
                 <td th:text="${todo.getDueDate()}"></td>
-                <td th:text="${todo.isDone()}"></td>
+                <td> <!-- Conditional Rendering -->
+                    <a th:href="'toggle-todo-done' + '?id=' + ${todo.getId()}" th:text="${todo.isDone()} ? '✓': '&nbsp&nbsp&nbsp&nbsp'" th:class="${todo.isDone()} ? 'btn btn-secondary': 'btn btn-light'"></a>
+                </td>
                 <td><a th:href="'update-todo' + '?id=' + ${todo.getId()}">
                     <button th:text="Update" class="btn btn-warning"></button>
                 </a></td>
